@@ -211,7 +211,7 @@ int main() {
     int digits;
     digits = countDigits(data);
     printf("String = %s\\n", data);
-    printf("Digits = %d\n", digits);
+    printf("Digits = %d\\n", digits);
     if(digits == 4)
         printf("Expected count\\n");
     else
