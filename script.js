@@ -1,140 +1,121 @@
 /* EDITABLE CONTEST DATA — replace these 20 Java strings before hosting. */
 const CODE_SETS={
 third:[
-`class S {
-    static long linearSearch(int[] arr, int key) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == key) return i;
+`class Main {
+    public static void main(String[] args) {
+        String s = "LEVEL";
+        Stack<Character> st = new Stack<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            st.push(s.charAt(i));
         }
-        return -1;
+
+        String rev = "";
+
+        while (!st.isEmpty()) {
+            rev = rev + st.pop();
+        }
+
+        System.out.println(s.equals(rev));
     }
-    static int binarySearch(int[] arr, int key) {
-        int low = 0, high = arr.length - 1;
-        while (low <= high) {
-            int mid = ( low + high ) / 2;
-            if (arr[mid] == key) return mid;
-            else if (arr[mid] < key) low = mid + 1;
-            else high = mid - 1;
+}`,
+`class Main {
+    public static void main(String[] args) {
+        int[] arr = {4, 2, 4, 3, 2, 4, 5};
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
         }
-        return -1;
+
+        int max = 0;
+        int element = 0;
+
+        for (int key : map.keySet()) {
+            if (map.get(key) > max) {
+                max = map.get(key);
+                element = key;
+            }
+        }
+
+        System.out.println(element);
+    }
+}`,
+`class Counter {
+    int value = 0;
+    void run() {
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <= 3; j++) {
+                if ((i + j) % 2 == 0)
+                    value++;
+                else
+                    value += 2;
+            }
+        }
     }
 }
-public class M {
+class Main {
     public static void main(String[] args) {
-        int[] a = {10, 20, 30, 40, 50, 70, 80, 90};
-        short k = 30;
-        int result = S.binarySearch(a, k);
+        Counter c = new Counter();
+        c.run();
+        int x = c.value;
+        while (x > 5) {
+            if (x % 3 == 0)
+                x -= 3;
+            else
+                x--;
+        }
+        System.out.println(x);
     }
 }`,
-`import java.util.*;
-public class Main {
-    static boolean isPrime(int n) {
-        if (n < 2) return false;
-        for (int i = 2; i * i <= n; i++)
-            if (n % i == 0) return false;
-        return true;
-    }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println(isPrime(sc.nextInt()));
-    }
-}`,
-`import java.util.*;
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String word = sc.nextLine();
-        String reverse = new StringBuilder(word)
-                .reverse().toString();
-        System.out.println(word.equals(reverse));
-    }
-}`,
-`import java.util.*;
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] numbers = new int[n];
-        for (int i = 0; i < n; i++) numbers[i] = sc.nextInt();
-        Arrays.sort(numbers);
-        System.out.println(numbers[n - 1]);
-    }
-}`,
-`import java.util.*;
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        long a = 0, b = 1;
-        for (int i = 0; i < n; i++) {
-            System.out.print(a + " ");
-            long next = a + b;
-            a = b; b = next;
+`class Student {
+    byte marks = 80;
+    class Result {
+        void show() {
+            System.out.println("Marks: " + marks);
         }
     }
-}`,
-`import java.util.*;
+}
+class College {
+    void display() {
+        System.out.println("College Student");
+    }
+}
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String[] words = sc.nextLine().split(" ");
-        Map<String, Integer> count = new HashMap<>();
-        for (String word : words)
-            count.put(word, count.getOrDefault(word, 0) + 1);
-        System.out.println(count);
+        Student s = new Student();
+        Student.Result r = s.new Result();
+        College c = new College();
     }
 }`,
-`import java.util.*;
-public class Main {
-    static int gcd(int a, int b) {
-        while (b != 0) {
-            int temp = b;
-            b = a % b;
-            a = temp;
-        }
-        return a;
+`class A {
+    void show() {
+        System.out.print("A");
     }
+}
+class B extends A {
+    void show() {
+        super.show();
+        System.out.print("B");
+    }
+}
+class C extends B {
+    void show() {
+        System.out.print("C");
+        super.show();
+    }
+}
+public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println(gcd(sc.nextInt(), sc.nextInt()));
+        A ob = new C();
+        ob.show();
     }
 }`,
-`import java.util.*;
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(), sum = 0;
-        int[][] matrix = new int[n][n];
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++) {
-                matrix[i][j] = sc.nextInt();
-                if (i == j) sum += matrix[i][j];
-            }
-        System.out.println(sum);
-    }
-}`,
-`import java.util.*;
-public class Main {
-    static int factorial(int n) {
-        if (n <= 1) return 1;
-        return n * factorial(n - 1);
-    }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println(factorial(sc.nextInt()));
-    }
-}`,
-`import java.util.*;
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String text = sc.nextLine().toLowerCase();
-        int vowels = 0;
-        for (char ch : text.toCharArray())
-            if ("aeiou".indexOf(ch) >= 0) vowels++;
-        System.out.println(vowels);
-    }
-}`
+`Add code`,
+`Add code`,
+`Add code`,
+`Add code`,
+`Add code`
 ],
 second:[
 `public class Main {
